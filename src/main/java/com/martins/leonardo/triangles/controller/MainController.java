@@ -53,13 +53,15 @@ public class MainController {
              */
             for (Integer value: coordinatesX) {
                 if (!(value instanceof Integer)
-                        || value < 0){
+                        || value < 0
+                        || value > 950){
                     throw new DataTamperedException("Data corrupted!");
                 }
             }
             for (Integer value: coordinatesY) {
                 if (!(value instanceof Integer)
-                        || value < 0){
+                        || value < 0
+                        || value > 550){
                     throw new DataTamperedException("Data corrupted!");
                 }
             }
@@ -82,7 +84,7 @@ public class MainController {
 
 
             //check type
-            String triangleType = triangle.getTriangleType(sideAB, sideAC, sideBC);
+            String triangleType = triangle.getTriangleType(sideAB, sideAC, sideBC); //x, y, z
 
             /**
              * loads data to thymeleaf template
