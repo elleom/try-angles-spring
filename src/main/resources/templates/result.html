@@ -12,7 +12,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Result!</h1>
-            <p class="lead">Here s what you draw!</p>
+            <p class="lead">Here's what you have drawn!</p>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
         <canvas height="600" id="canvasY" width="50"></canvas>
         <canvas height="600" id="myCanvas" width="1000"></canvas>
         <div>
-            <h3 class="badge bg-info text-wrap fs-1">Details</h3>
+            <h3 class="badge bg-info text-wrap fs-1" style="margin-bottom: 50px">Details</h3>
             <div>
                 <h6 class="badge bg-primary text-wrap">Length of A-B</h6><b style="margin-left: 5px"
                                                                             th:text="${sideAB}">data side A-B</b>
@@ -133,9 +133,14 @@
     context.moveTo(x3, y3);
     context.lineTo(x3, 600);
     context.stroke();
+    context.closePath();
 
-
-
+    context.beginPath();
+    context.font = '20px Arial';
+    context.fillStyle = '#010b0e';
+    context.fillText("A", x1, y1)
+    context.fillText("B", x2, y2)
+    context.fillText("C", x3, y3)
 
     /*]]>*/
 </script>
