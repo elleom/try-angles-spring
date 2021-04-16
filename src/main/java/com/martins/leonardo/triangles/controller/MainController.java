@@ -14,11 +14,14 @@ import java.util.ArrayList;
 @Controller
 public class MainController {
 
+    //returns index page
     @RequestMapping({"/", "index", "index.html"})
     private String getIndex(){
         return "index";
     }
 
+
+    //display template
     @GetMapping({"display", "display.html"})
     private String getResults(@RequestParam int x1,
                             @RequestParam int y1,
@@ -37,6 +40,10 @@ public class MainController {
         coordinatesY.add(y3);
 
         try{
+
+            /**
+             * checks for data consistency
+             */
             for (Integer value: coordinatesX) {
                 if (!(value instanceof Integer)
                         || value < 0){
@@ -55,14 +62,18 @@ public class MainController {
             Point pointC = new Point(x3,y3);
 
             Triangle triangle = new Triangle(pointA, pointB, pointC);
+            //ArrayList deconstructed for readability
             ArrayList<Float> sideLengths = triangle.getSidesLength();
-
-
             Float sideBC = sideLengths.get(0);
             Float sideAC = sideLengths.get(1);
             Float sideAB = sideLengths.get(2);
 
+            //check type
             String triangleType = triangle.getTriangleType(sideAB, sideAC, sideBC);
+
+            /**
+             * loads data to thymeleaf template
+             */
             model.addAttribute("x1", x1);
             model.addAttribute("y1", y1);
             model.addAttribute("x2", x2);
