@@ -36,12 +36,7 @@ const drawAxis = () => {
         contextAxisY.fillText(y.toString(), 25, y - 5);
     }
 }
-/*
-const onLoadHandler = () => {
-    //document.getElementById('draw-btn').addEventListener('click', getUserInput)
-    console.log('loaded')
-}
-*/
+
 
 
 
