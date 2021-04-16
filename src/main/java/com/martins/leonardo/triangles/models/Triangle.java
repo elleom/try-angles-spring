@@ -57,9 +57,9 @@ public class Triangle {
         int c2 = lengthSquare(this.pointA, this.pointB);
 
         // length of sides be a, b, c
-        Double a = (double) sqrt(a2);
-        Double b = (double) sqrt(b2);
-        Double c = (double) sqrt(c2);
+        Double a = sqrt(a2);
+        Double b = sqrt(b2);
+        Double c = sqrt(c2);
 
         lengthArray.add(a);
         lengthArray.add(b);
