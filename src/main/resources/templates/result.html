@@ -20,25 +20,29 @@
     <div class="container">
         <canvas height="52" id="canvasX" width="1000"></canvas>
     </div>
-
     <div class="container d-inline-flex">
         <canvas height="600" id="canvasY" width="50"></canvas>
         <canvas height="600" id="myCanvas" width="1000"></canvas>
-        <div>
+        <div class="container">
             <h3 class="badge bg-info text-wrap fs-1" style="margin-bottom: 50px">Details</h3>
-            <div>
-                <h6 class="badge bg-primary text-wrap">Length of A-B</h6><b style="margin-left: 5px"
-                                                                            th:text="${sideAB}">data side A-B</b>
-                <h6 class="badge bg-success text-wrap">Length of A-C</h6><b style="margin-left: 5px"
-                                                                            th:text="  ${sideAC}">data side A-C</b>
-                <h6 class="badge bg-danger text-wrap">Length of B-C</h6><b style="margin-left: 5px"
-                                                                           th:text="  ${sideBC}">data side A-B</b>
+            <div class="container">
+                <div>
+                    <h6 class="badge bg-primary text-wrap">Length of A-B</h6><b style="margin-left: 5px"
+                                                                                th:text="${sideAB}">data side A-B</b>
+                </div>
+                <div>
+                    <h6 class="badge bg-success text-wrap">Length of A-C</h6><b style="margin-left: 5px"
+                                                                                th:text="  ${sideAC}">data side A-C</b>                </div>
+                <div>
+                    <h6 class="badge bg-danger text-wrap">Length of B-C</h6><b style="margin-left: 5px"
+                                                                               th:text="  ${sideBC}">data side A-B</b>
+                </div>
             </div>
-
-            <p>So basically this triangle is <b th:text="${type}">data TYPE</b></p>
+            <div class="container" style="margin-top: 50px">
+                <p>So basically this triangle is <b th:text="${type}">data TYPE</b></p>
+            </div>
         </div>
     </div>
-
 </div>
 
 </body>
@@ -82,7 +86,7 @@
      * */
     context.beginPath();
     context.strokeStyle = '#9191c6'
-    context.setLineDash([5,15])
+    context.setLineDash([5, 15])
     //x1,y1 lines
     context.moveTo(x1, y1);
     context.lineTo(0, y1);
