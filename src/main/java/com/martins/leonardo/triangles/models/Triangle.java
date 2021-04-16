@@ -3,6 +3,7 @@ package com.martins.leonardo.triangles.models;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
 public class Triangle {
@@ -48,17 +49,17 @@ public class Triangle {
         return xDiff*xDiff + yDiff*yDiff;
     }
 
-    public ArrayList<Float> getSidesLength() {
-        ArrayList<Float> lengthArray = new ArrayList();
+    public ArrayList<Double> getSidesLength() {
+        ArrayList<Double> lengthArray = new ArrayList();
         // Square of lengths be a2, b2, c2
         int a2 = lengthSquare(this.pointB, this.pointC);
         int b2 = lengthSquare(this.pointA, this.pointC);
         int c2 = lengthSquare(this.pointA, this.pointB);
 
         // length of sides be a, b, c
-        Float a = (float) sqrt(a2);
-        Float b = (float) sqrt(b2);
-        Float c = (float) sqrt(c2);
+        Double a = (double) sqrt(a2);
+        Double b = (double) sqrt(b2);
+        Double c = (double) sqrt(c2);
 
         lengthArray.add(a);
         lengthArray.add(b);
@@ -67,19 +68,28 @@ public class Triangle {
         return lengthArray;
     }
 
-    public String getTriangleType(Float x, Float y,  Float z){
+    public String getTriangleType(Double sideAB, Double sideAC,  Double sideBC){
 
         //check for a line and not a form
-        if (x < 1 || y < 1 || z < 1) {
+        if (sideAB < 1 || sideAC < 1 || sideBC < 1) {
             return "Not a triangle";
         }
 
+        /**
+         * comparing by == leads to wrong result
+         * as it doesnt compares the value but the object
+         * alt = Double.compare(double1, double2)
+         */
+
         // Check for equilateral triangle
-        if (x == y && y == z )
+        if (sideAB.equals(sideBC) && sideBC.equals(sideAC)
+                || (abs(sideAB - sideBC) <= 0.5 && abs(sideAC - sideBC) <= 0.5) )
             return "Equilateral";
 
-            // Check for isoceles triangle
-        else if (x == y || y == z || z == x )
+        // Check for isoceles triangle
+        else if ( sideAB.equals(sideBC)
+                || sideAB.equals(sideAC)
+                || sideBC.equals(sideAC))
             return "Isosceles";
 
             // Otherwise scalene triangle

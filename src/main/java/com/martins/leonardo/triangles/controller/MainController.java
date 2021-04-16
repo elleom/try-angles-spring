@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 @Controller
 public class MainController {
+
+    /**
+     *  to set decimal precision point onto .00
+     *  avoid extreme comparison
+     *  eg. 40.60456 != 40.60457
+     */
 
     //returns index page
     @RequestMapping({"/", "index", "index.html"})
@@ -63,10 +70,16 @@ public class MainController {
 
             Triangle triangle = new Triangle(pointA, pointB, pointC);
             //ArrayList deconstructed for readability
-            ArrayList<Float> sideLengths = triangle.getSidesLength();
-            Float sideBC = sideLengths.get(0);
-            Float sideAC = sideLengths.get(1);
-            Float sideAB = sideLengths.get(2);
+            ArrayList<Double> sideLengths = triangle.getSidesLength();
+
+
+            Double sideBC = sideLengths.get(0);
+            Double sideAC = sideLengths.get(1);
+            Double sideAB = sideLengths.get(2);
+            sideBC = Math.floor (sideBC * 10) /10;
+            sideAC = Math.floor (sideAC * 10) /10;
+            sideAB = Math.floor (sideAB * 10) /10;
+
 
             //check type
             String triangleType = triangle.getTriangleType(sideAB, sideAC, sideBC);
