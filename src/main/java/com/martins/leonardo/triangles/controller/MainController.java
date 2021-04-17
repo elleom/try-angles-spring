@@ -107,4 +107,9 @@ public class MainController {
         return "result";
     }
 
+    @GetMapping({"lines", "lines.html"})
+    private String getResultsWithLines(){
+        return "lines";
+    }
+
 }
