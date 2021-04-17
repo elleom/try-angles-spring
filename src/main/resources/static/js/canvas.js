@@ -37,6 +37,34 @@ const drawAxis = () => {
     }
 }
 
+const checkTriangle = () => {
+
+
+    let userInput = [];
+    let inputs = document.getElementsByTagName('input');
+
+    for (let i = 0; i < inputs.length; i++){
+        if (inputs[i].value == ""){
+            alert('Fill all!')
+            break;
+        }
+        userInput[i] = inputs[i].value;
+    }
+
+    let x = userInput[0];
+    let y = userInput[1];
+    let z = userInput[2];
+
+}
+
+const onLoadHandler = () => {
+    document.getElementById('draw-btn').addEventListener('click', checkTriangle);
+    console.log('clicked');
+
+}
+
+
+
 
 
 
