@@ -53,14 +53,14 @@ public class MainController {
              */
             for (Integer value: coordinatesX) {
                 if (!(value instanceof Integer)
-                        || value < 0
+                        || value < 1
                         || value > 950){
                     throw new DataTamperedException("Data corrupted!");
                 }
             }
             for (Integer value: coordinatesY) {
                 if (!(value instanceof Integer)
-                        || value < 0
+                        || value < 1
                         || value > 550){
                     throw new DataTamperedException("Data corrupted!");
                 }

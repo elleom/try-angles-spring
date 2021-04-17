@@ -70,8 +70,13 @@ public class Triangle {
 
     public String getTriangleType(Double x, Double y,  Double z){ //sideAB, AC, BC
 
+        /**
+         * Triangular Inequality.
+         * In a triangle the length of each side, is less than the sum of the lengths of the other two
+         */
         //check for a not a triangle
-        if ((x + y) < z || (x + z) < y || (y + z) < x) {
+        //check 1st , there's no need to do the other checks if it is not a triangle
+        if (((x + y) <= z) || ((x + z) <= y) || ((y + z) <= x)) {
             return "not a triangle X";
         }
 
