@@ -68,11 +68,11 @@ public class Triangle {
         return lengthArray;
     }
 
-    public String getTriangleType(Double sideAB, Double sideAC,  Double sideBC){
+    public String getTriangleType(Double x, Double y,  Double z){ //sideAB, AC, BC
 
-        //check for a line and not a form
-        if (sideAB < 1 || sideAC < 1 || sideBC < 1) {
-            return "Not a triangle";
+        //check for a not a triangle
+        if ((x + y) < z || (x + z) < y || (y + z) < x) {
+            return "not a triangle X";
         }
 
         /**
@@ -82,14 +82,14 @@ public class Triangle {
          */
 
         // Check for equilateral triangle
-        if (sideAB.equals(sideBC) && sideBC.equals(sideAC)
-                || (abs(sideAB - sideBC) <= 0.5 && abs(sideAC - sideBC) <= 0.5) )
+        if (x.equals(z) && z.equals(y)
+                || (abs(x - z) <= 0.5 && abs(y - z) <= 0.5) )
             return "Equilateral";
 
         // Check for isoceles triangle
-        else if ( sideAB.equals(sideBC)
-                || sideAB.equals(sideAC)
-                || sideBC.equals(sideAC))
+        else if ( x.equals(z)
+                || x.equals(y)
+                || z.equals(y))
             return "Isosceles";
 
             // Otherwise scalene triangle
