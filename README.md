@@ -12,7 +12,8 @@
 
 ### Instructions:
 
-1. build
+1. Build
+  * mvn package
 
 2. _Run containerized_
   * Inside project folder run: 
