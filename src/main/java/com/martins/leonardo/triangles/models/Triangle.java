@@ -74,32 +74,56 @@ public class Triangle {
          * Triangular Inequality.
          * In a triangle the length of each side, is less than the sum of the lengths of the other two
          */
+        String answer;
+
         //check for a not a triangle
         //check 1st , there's no need to do the other checks if it is not a triangle
-        if (((x + y) <= z) || ((x + z) <= y) || ((y + z) <= x)) {
-            return "not a triangle X";
+        if (!isTriangle(x, y, z)){
+            answer = "not a triangle and you can't draw";
+            return answer;
         }
 
+        // Check for equilateral triangle
+        if (isEquilateral(x, y, z)){
+            answer = "Equilateral";
+            return answer;
+        }
+
+        // Check for isosceles triangle
+        else if ( isIsosceles(x, y, z)) {
+            answer = "Isosceles";
+            return answer;
+        }
+        // Otherwise scalene triangle
+        else {
+            answer = "Scalene";
+            return  answer;
+        }
+    }
+
+    private boolean isTriangle(Double x, Double y, Double z) {
+        if (((x + y) <= z) || ((x + z) <= y) || ((y + z) <= x)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isEquilateral(Double x, Double y, Double z){
         /**
          * comparing by == leads to wrong result
          * as it doesnt compares the value but the object
          * alt = Double.compare(double1, double2)
-         */
+         * */
+        if (x.equals(z) && z.equals(y)){
+            return true;
+        }
+        return false;
+    }
 
-        // Check for equilateral triangle
-        if (x.equals(z) && z.equals(y)
-                || (abs(x - z) <= 0.5 && abs(y - z) <= 0.5) )
-            return "Equilateral";
-
-        // Check for isoceles triangle
-        else if ( x.equals(z)
-                || x.equals(y)
-                || z.equals(y))
-            return "Isosceles";
-
-            // Otherwise scalene triangle
-        else
-            return "Scalene";
-
+    private boolean isIsosceles(Double x, Double y, Double z){
+        if ( x.equals(z) || x.equals(y) || z.equals(y)) {
+            return true;
+        }
+        return false;
     }
 }
