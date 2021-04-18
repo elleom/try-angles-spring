@@ -101,14 +101,14 @@ public class Triangle {
         }
     }
 
-    private boolean isTriangle(Double x, Double y, Double z) {
+    public boolean isTriangle(Double x, Double y, Double z) {
         if (((x + y) <= z) || ((x + z) <= y) || ((y + z) <= x)) {
             return false;
         }
         return true;
     }
 
-    private boolean isEquilateral(Double x, Double y, Double z){
+    public boolean isEquilateral(Double x, Double y, Double z){
         /**
          * comparing by == leads to wrong result
          * as it doesnt compares the value but the object
@@ -120,7 +120,7 @@ public class Triangle {
         return false;
     }
 
-    private boolean isIsosceles(Double x, Double y, Double z){
+    public boolean isIsosceles(Double x, Double y, Double z){
         if ( x.equals(z) || x.equals(y) || z.equals(y)) {
             return true;
         }
