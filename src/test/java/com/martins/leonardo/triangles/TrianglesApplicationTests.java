@@ -3,8 +3,6 @@ package com.martins.leonardo.triangles;
 import com.martins.leonardo.triangles.models.Triangle;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.awt.*;
@@ -20,31 +18,6 @@ class TrianglesApplicationTests {
     @Test
     void contextLoads() {
     }
-
-    static WebDriver driver;
-
-    @BeforeAll
-    static void beforeMethod() {
-
-        // set path to chromeDriver
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chrome_driver.exe");
-
-        // Initialise driver
-        driver = new ChromeDriver();
-
-    }
-
-    @Test
-    public void navigateToURL() {
-
-        driver.get("localhost:8080");
-        // both pass
-        assertEquals(driver.getTitle(), "Try-angles");
-
-
-    }
-
-
 
     @Test
     void isNotTriangle(){
