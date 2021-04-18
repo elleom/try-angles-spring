@@ -12,8 +12,8 @@
 ###Intructions:
 _Run containerized_
 
-`docker build -t springio/triangles-spring-boot-docker .`
-`docker run -p 8080:8080 springio/triangles-spring-boot-docker`
+`docker build -t lm/triangles-lm-spring-boot-docker .`
+`docker run -p 8080:8080 lm/triangles-lm-spring-boot-docker .`
 
 _enter URL in your browser_
 
