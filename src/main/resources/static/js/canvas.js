@@ -45,45 +45,130 @@ const getUserInput = () => {
     for (let i = 0; i < inputs.length; i++){
         if (inputs[i].value == ""){
             alert('Complete all fields!')
-            break;
+            return;
         }
         userInput[i] = inputs[i].value;
     }
 
-    let x = userInput[0];
-    let y = userInput[1];
-    let z = userInput[2];
+    let x = parseInt(userInput[0])
+    let y = parseInt(userInput[1])
+    let z = parseInt(userInput[2])
+
+    checkTriangle(x, y, z)
 
 }
 
-const isNotTriangle = (x, y, z) => {
-    (((x +y) < z) || ((x+z) < y) || ((y +z < x))) ? true : false;
+const isTriangle = (x, y, z) => {
+
+    if  (x +y <= z) {
+        return false;
+    }
+    if( x+z <= y){
+        return false;
+    }
+    if (y +z <= x) {
+       return false;
+    }
+    return true;
+
 }
 
 const isEquilateral = (x,y,z) => {
-    ((x === y) && (y === z)) ? true : false;
+    if((x === y) && (y === z)) {
+        return true;
+    }
+    return false;
 }
 
-const isIsoceles = (x, y, z) => {
-    (x === y) || (x === z) || (z === y) ? true : false;
+const isIsosceles = (x, y, z) => {
+    let isIsosceles = ((x === y) || (y === z) || (x === z)) ? this.check = true : this.check = false;
+    return isIsosceles;
+
 }
 
 const checkTriangle = (x, y, z) => {
-    if (isNotTriangle()){
+    console.log('started check')
+    let calcBtn = document.getElementById('calc-btn');
+    let  restartBtn = document.getElementById('restart-btn');
+    let resultText = document.getElementById('result');
+
+    calcBtn.hidden = true;
+    restartBtn.hidden = false;
+
+    let image = document.getElementById('result-image');
+
+    let xyBox = document.getElementById('xy');
+    let xzBox = document.getElementById('xz');
+    let yzBox = document.getElementById('yz');
+
+    if (isTriangle(x, y, z)){
+        image.src = '/images/OK.png';
 
     }
-    else if(isEquilateral()) {
+    else {
+        image.src = '/images/NOT.png';
+        let answer = 'It is not a triangle. \n'
+        if ((x + y) <= z){
+            xyBox.innerText = 'A: '+x + '+ B: ' + y + ' =< C: ' + z;
+            xyBox.hidden = false;
+        }
+        if ((x + z) <= y){
+            xzBox.innerText = 'A: '+x + '+ C: ' + z + ' =< B: ' + y;
+            xzBox.hidden = false;
+        }
+        if ((z + y) <= x){
+            yzBox.innerText = 'C: '+z + '+ B: ' + y + ' =< A: ' + x;
+            yzBox.hidden = false;
+        }
+        resultText.innerText = answer
+        return;
 
-    }
-    else if (isIsoceles()){
+    };
 
+    if (isEquilateral(x,y,z)) {
+        resultText.innerText = 'It is an equilateral triangle'
+        xyBox.innerText = 'A: '+x + ', B: ' + y + ' and C: ' + z + 'are equal length';
+        return;
     }
-    else {}
+    else if (isIsosceles(x,y,z)){
+        resultText.innerText = 'It is an isosceles triangle, 2 sides are equal length';
+    }
+    else {
+        resultText.innerText = 'It is an scalene triangle, all sides are different length.';
+    }
+    xyBox.innerText = 'A: '+x;
+    xzBox.innerText = 'B: '+y;
+    yzBox.innerText = 'C: '+z;
+    xyBox.hidden = false;
+    xzBox.hidden = false;
+    yzBox.hidden = false;
+}
+
+const onClickReload = () => {
+    let inputs = document.getElementsByTagName('input');
+    for (let i = 0; i <inputs.length; i++){
+        inputs[i].value = '0';
+    }
+    let image = document.getElementById('result-image');
+    image.src = '/images/question.png'
+
+    let calcBtn = document.getElementById('calc-btn');
+    let  restartBtn = document.getElementById('restart-btn');
+    calcBtn.hidden = false;
+    restartBtn.hidden = true;
+    let resultText = document.getElementById('result');
+    resultText.innerText = 'What would it be?'
+
+    let xyBox = document.getElementById('xy').hidden = true;
+    let xzBox = document.getElementById('xz').hidden = true;
+    let yzBox = document.getElementById('yz').hidden = true;
+
 }
 
 const onLoadHandler = () => {
     //sets a listener on the page
-    document.getElementById('draw-btn').addEventListener('click', getUserInput);
+    document.getElementById('calc-btn').addEventListener('click', getUserInput);
+    document.getElementById('restart-btn').addEventListener('click', onClickReload);
     console.log('loaded');
 
 }
