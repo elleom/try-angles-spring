@@ -3,6 +3,9 @@ package com.martins.leonardo.triangles.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/***
+ * @author LM
+ */
 @Controller
 public class CustomErrorController implements org.springframework.boot.web.servlet.error.ErrorController {
 

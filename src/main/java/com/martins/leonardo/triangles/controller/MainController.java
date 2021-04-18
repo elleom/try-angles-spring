@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.awt.*;
 import java.util.ArrayList;
 
+/***
+ * @author LM
+ */
 @Controller
 public class MainController {
 
@@ -58,7 +61,7 @@ public class MainController {
                     throw new DataTamperedException("Data corrupted!");
                 }
             }
-
+            //creates x,y to construct the triangle
             Point pointA = new Point(x1,y1);
             Point pointB = new Point(x2,y2);
             Point pointC = new Point(x3,y3);
@@ -66,7 +69,6 @@ public class MainController {
             Triangle triangle = new Triangle(pointA, pointB, pointC);
             //ArrayList deconstructed for readability
             ArrayList<Double> sideLengths = triangle.getSidesLength();
-
 
             Double sideBC = sideLengths.get(0);
             Double sideAC = sideLengths.get(1);

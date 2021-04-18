@@ -2,10 +2,11 @@ package com.martins.leonardo.triangles.models;
 
 import java.awt.*;
 import java.util.ArrayList;
-
-import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
+/***
+ * @author LM
+ */
 public class Triangle {
 
     private Point pointA;
@@ -42,12 +43,21 @@ public class Triangle {
         this.pointC = pointC;
     }
 
+    /***
+     * @param point1
+     * @param point2
+     * retrieves sideLength**2
+     */
     protected static int lengthSquare(Point point1, Point point2)
     {
         int xDiff = point1.x- point2.x;
         int yDiff = point1.y- point2.y;
         return xDiff*xDiff + yDiff*yDiff;
     }
+
+    /**
+     * retrieves side length
+     * */
 
     public ArrayList<Double> getSidesLength() {
         ArrayList<Double> lengthArray = new ArrayList();
@@ -67,6 +77,14 @@ public class Triangle {
 
         return lengthArray;
     }
+
+    /***
+     * @param x
+     * @param y
+     * @param z
+     * retrieves type of triangle or !triangle
+     * @return answer
+     */
 
     public String getTriangleType(Double x, Double y,  Double z){ //sideAB, AC, BC
 

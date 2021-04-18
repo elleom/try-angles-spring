@@ -3,6 +3,9 @@ package com.martins.leonardo.triangles;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/***
+ * @author LM
+ */
 @SpringBootApplication
 public class TrianglesApplication {
 
