@@ -15,12 +15,6 @@ import java.util.ArrayList;
 @Controller
 public class MainController {
 
-    /**
-     *  to set decimal precision point onto .00
-     *  avoid extreme comparison
-     *  eg. 40.60456 != 40.60457
-     */
-
     //returns index page
     @RequestMapping({"/", "index", "index.html"})
     private String getIndex(){
@@ -78,6 +72,12 @@ public class MainController {
             Double sideBC = sideLengths.get(0);
             Double sideAC = sideLengths.get(1);
             Double sideAB = sideLengths.get(2);
+
+            /**
+             *  to set decimal precision point onto .00
+             *  avoid extreme comparison
+             *  eg. 40.60456 != 40.60457
+             */
             sideBC = Math.floor (sideBC * 10) /10;
             sideAC = Math.floor (sideAC * 10) /10;
             sideAB = Math.floor (sideAB * 10) /10;
