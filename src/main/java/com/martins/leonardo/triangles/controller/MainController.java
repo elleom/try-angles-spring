@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.awt.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 @Controller
