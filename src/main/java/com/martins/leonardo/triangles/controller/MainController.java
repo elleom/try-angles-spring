@@ -29,7 +29,7 @@ public class MainController {
                             @RequestParam int y2,
                             @RequestParam int x3,
                             @RequestParam int y3,
-                            Model model) throws DataTamperedException {
+                            Model model) {
         ArrayList<Integer> coordinatesX = new ArrayList<>();
         ArrayList<Integer> coordinatesY = new ArrayList<>();
         coordinatesX.add(x1);
@@ -100,7 +100,7 @@ public class MainController {
             model.addAttribute("type", triangleType);
 
         } catch (DataTamperedException e ){
-            e.getMessage();
+            System.out.println(e.getMessage());
             return "error";
         }
         return "result";
