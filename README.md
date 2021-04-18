@@ -9,7 +9,7 @@
   * Docker
   * Thymeleaf
 
-###Intructions:
+###Instructions:
 _Run containerized_
 
 `docker build -t lm/triangles-lm-spring-boot-docker .`
@@ -21,4 +21,6 @@ _enter URL in your browser_
 
 Docker + Spring DOCS [link text itself]: http://spring.io/guides/gs/spring-boot-docker/]
 
-#more
+![screen 1](https://github.com/elleom/try-angles-spring/blob/main/images/screenshot_1.png "ScreenShot 1")
+![screen 2](https://github.com/elleom/try-angles-spring/blob/main/images/screenshot_2.png "ScreenShot 2")
+![screen 3](https://github.com/elleom/try-angles-spring/blob/main/images/screenshot_3.png "ScreenShot 3")
