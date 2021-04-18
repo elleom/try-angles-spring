@@ -37,15 +37,14 @@ const drawAxis = () => {
     }
 }
 
-const checkTriangle = () => {
-
+const getUserInput = () => {
 
     let userInput = [];
     let inputs = document.getElementsByTagName('input');
 
     for (let i = 0; i < inputs.length; i++){
         if (inputs[i].value == ""){
-            alert('Fill all!')
+            alert('Complete all fields!')
             break;
         }
         userInput[i] = inputs[i].value;
@@ -57,9 +56,35 @@ const checkTriangle = () => {
 
 }
 
+const isNotTriangle = (x, y, z) => {
+    (((x +y) < z) || ((x+z) < y) || ((y +z < x))) ? true : false;
+}
+
+const isEquilateral = (x,y,z) => {
+    ((x === y) && (y === z)) ? true : false;
+}
+
+const isIsoceles = (x, y, z) => {
+    (x === y) || (x === z) || (z === y) ? true : false;
+}
+
+const checkTriangle = (x, y, z) => {
+    if (isNotTriangle()){
+
+    }
+    else if(isEquilateral()) {
+
+    }
+    else if (isIsoceles()){
+
+    }
+    else {}
+}
+
 const onLoadHandler = () => {
-    document.getElementById('draw-btn').addEventListener('click', checkTriangle);
-    console.log('clicked');
+    //sets a listener on the page
+    document.getElementById('draw-btn').addEventListener('click', getUserInput);
+    console.log('loaded');
 
 }
 
