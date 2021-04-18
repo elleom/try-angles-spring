@@ -15,8 +15,9 @@
 1. build
 
 2. _Run containerized_
-  * `docker build -t lm/triangles-lm-spring-boot-docker .`
-  * `docker run -p 8080:8080 lm/triangles-lm-spring-boot-docker .`
+  * Inside project folder run: 
+    * `docker build -t lm/triangles-lm-spring-boot-docker .`
+    * `docker run -p 8080:8080 lm/triangles-lm-spring-boot-docker .`
 
 _enter URL in your browser_
 
